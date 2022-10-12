@@ -2,6 +2,8 @@
   "scripts": {
     "test": "vitest --environment jsdom",
     "test:ui": "vitest --environment jsdom --ui",
+    "dev": "vite",
+    "init": "concurrently \"npm run dev\" \"npm run test\" ",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
