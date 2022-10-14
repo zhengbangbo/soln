@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { Ref, toRef } from 'vue'
-import { isRef, reactive, ref, unref } from 'vue'
+import type { Ref } from 'vue'
+import { isRef, reactive, ref, toRef, unref } from 'vue'
 
 const initial = ref(10)
 const count = ref(0)
@@ -14,6 +14,7 @@ function update(value) {
  * Challenge 2: Check if the `count` is a ref object.
  * Make the output be 1
 */
+// eslint-disable-next-line no-console
 console.log(
   isRef(count) ? 1 : 0,
 )
@@ -24,6 +25,7 @@ console.log(
 */
 function initialCount(value: number | Ref<number>) {
   // Make the output be true
+  // eslint-disable-next-line no-console
   console.log(unref(value) === 10)
 }
 
@@ -44,10 +46,12 @@ const fooRef = toRef(state, 'foo') // change the impl...
 
 // mutating the ref updates the original
 fooRef.value++
+// eslint-disable-next-line no-console
 console.log(state.foo === 2)
 
 // mutating the original also updates the ref
 state.foo++
+// eslint-disable-next-line no-console
 console.log(fooRef.value === 3)
 </script>
 
